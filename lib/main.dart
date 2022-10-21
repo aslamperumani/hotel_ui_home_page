@@ -13,6 +13,9 @@ void main() {
 }
 
 class HotelUi extends StatelessWidget {
+
+  String s = "\$";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +59,7 @@ class HotelUi extends StatelessWidget {
         child: Icon(Icons.favorite_border_outlined),),
         ],
       ),
-
       drawer: Drawer(),
-
-
 
 
 
@@ -153,9 +153,28 @@ class HotelUi extends StatelessWidget {
                           surfaceTintColor: Color.fromRGBO(174, 39, 95, 1),
                           child: Column(
                             children: [
-                              Image(
-                                  image: NetworkImage(
-                                      "https://krakow.wiki/wp-content/uploads/2016/11/hotel-1749602_1280.jpg")),
+                              Stack(
+                              alignment: Alignment.bottomRight,
+                              children: <Widget>[
+                                Image(
+                                    image: NetworkImage(
+                                        "https://krakow.wiki/wp-content/uploads/2016/11/hotel-1749602_1280.jpg")),
+                                Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: ElevatedButton(
+                                        onPressed: () {},
+                                        child:  Text('\$40', style: TextStyle(color: Colors.white)),
+                                      style: ElevatedButton.styleFrom(
+                                          primary: Colors.redAccent,
+                                      ),
+
+                                    )
+                                ),
+
+                              ],
+                              ),
+
+
                               const ListTile(
                                 title: Text("Awsome Room near Bouddha",
                                     style:
